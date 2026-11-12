@@ -37,6 +37,7 @@ done
 cd /workspaces/cloud-sandbox
 git config --global user.name "SandboxBot"
 git config --global user.email "bot@sandbox.dev"
+git pull --rebase origin main || true
 git add kameleo_report_${CODESPACE_NAME}.json kameleo_setup.log || true
 git commit -m "Report: Isolated Kameleo trial for ${CODESPACE_NAME}" || true
 git push origin main || true
