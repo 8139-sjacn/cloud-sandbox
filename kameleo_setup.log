@@ -1,6 +1,6 @@
-=== Starting Kameleo Isolated Setup at Thu Nov 12 20:27:38 UTC 2026 ===
-CODESPACE_NAME=kameleo-sandbox-1-77p4jxpr66963rvq9
-Assigned Account: Account-1-StevenBrown
+=== Starting Kameleo Isolated Setup at Thu Nov 12 22:33:07 UTC 2026 ===
+CODESPACE_NAME=kameleo-sandbox-2-4g74w9qxp46cjvg5
+Assigned Account: Account-2-NathanCortez
 Error response from daemon: No such container: kameleo-app
 Unable to find image 'kameleo/kameleo-app:latest' locally
 latest: Pulling from kameleo/kameleo-app
@@ -17,8 +17,6 @@ a0fecabb5296: Pulling fs layer
 876bdb708555: Pulling fs layer
 c4402d828c28: Pulling fs layer
 6be09624b66d: Pulling fs layer
-c5c4a559a33e: Waiting
-7c49591a3a05: Waiting
 10b933f10516: Waiting
 a0fecabb5296: Waiting
 249efb828956: Waiting
@@ -27,27 +25,30 @@ c4402d828c28: Waiting
 6be09624b66d: Waiting
 ccb9f6343f83: Waiting
 cc9bc70aaacb: Waiting
+c5c4a559a33e: Waiting
+7c49591a3a05: Waiting
 8ae952ef6ba4: Verifying Checksum
 8ae952ef6ba4: Download complete
+a6a55f2a2de9: Verifying Checksum
+a6a55f2a2de9: Download complete
+38d69e7210b4: Verifying Checksum
 38d69e7210b4: Download complete
 ccb9f6343f83: Verifying Checksum
 ccb9f6343f83: Download complete
-a6a55f2a2de9: Verifying Checksum
-a6a55f2a2de9: Download complete
 7c49591a3a05: Verifying Checksum
 7c49591a3a05: Download complete
-10b933f10516: Verifying Checksum
-10b933f10516: Download complete
-a0fecabb5296: Verifying Checksum
-a0fecabb5296: Download complete
 c5c4a559a33e: Verifying Checksum
 c5c4a559a33e: Download complete
+10b933f10516: Verifying Checksum
+10b933f10516: Download complete
 cc9bc70aaacb: Verifying Checksum
 cc9bc70aaacb: Download complete
 249efb828956: Verifying Checksum
 249efb828956: Download complete
 876bdb708555: Verifying Checksum
 876bdb708555: Download complete
+a0fecabb5296: Verifying Checksum
+a0fecabb5296: Download complete
 6be09624b66d: Verifying Checksum
 6be09624b66d: Download complete
 c4402d828c28: Verifying Checksum
@@ -67,6 +68,10 @@ c4402d828c28: Pull complete
 6be09624b66d: Pull complete
 Digest: sha256:59510aee3dff16a1a551e368099b3a08b1fd3731feed9c05c52dd81a1e3d97ae
 Status: Downloaded newer image for kameleo/kameleo-app:latest
-0120ebae6472e943c9813df22ea327215c3f377d055efc2e34f5375cdc1ef465
+59f54e44871848f5f28d2b6673f9ba671c6090c5ac6ce9260242264645b09f44
 Waiting for port 5050 to become ready...
+wait 1 fail
+wait 2 fail
 Kameleo API 200 OK!
+error: cannot pull with rebase: You have unstaged changes.
+error: Please commit or stash them.
