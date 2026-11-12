@@ -1,35 +1,47 @@
 #!/bin/bash
-set -e
 exec > /workspaces/cloud-sandbox/kameleo_install.log 2>&1
-echo "=== Starting Kameleo Installation at $(date) ==="
-uname -a
-docker --version
+echo "=== Starting Kameleo Check at $(date) ==="
 
 KAMELEO_PAT="VGJFmujnJH-eB0zy5gpXHao-kf1ju6QWm3Je15LcyzQ"
 
-echo "Pulling kameleo/kameleo-app:latest ..."
-docker pull kameleo/kameleo-app:latest
+# Check if container is running, if not run it
+if ! docker ps | grep -q kameleo-app; then
+  echo "Starting kameleo-app container..."
+  docker rm -f kameleo-app || true
+  docker run -d --name kameleo-app \
+    --platform linux/amd64 \
+    --shm-size=2g \
+    -p 5050:5050 \
+    -e PAT="$KAMELEO_PAT" \
+    -v kameleo-data:/data \
+    --restart unless-stopped \
+    kameleo/kameleo-app:latest
+fi
 
-echo "Running kameleo-app container ..."
-docker run -d --name kameleo-app   --platform linux/amd64   --shm-size=2g   -p 5050:5050   -e PAT="$KAMELEO_PAT"   -v kameleo-data:/data   --restart unless-stopped   kameleo/kameleo-app:latest
-
-echo "Waiting for Kameleo port 5050 to respond ..."
-for i in $(seq 1 40); do
-  if curl -s http://127.0.0.1:5050/general/user-info > /workspaces/cloud-sandbox/kameleo_user_info.json; then
-    echo "Kameleo started successfully!"
+echo "Waiting for Kameleo /general/user-info to return 200 OK..."
+SUCCESS=0
+for i in $(seq 1 60); do
+  RESP=$(curl -s http://127.0.0.1:5050/general/user-info || true)
+  if echo "$RESP" | grep -q '"plan"'; then
+    echo "KAMELEO READY! User info response:"
+    echo "$RESP"
+    echo "$RESP" > /workspaces/cloud-sandbox/kameleo_user_info.json
+    SUCCESS=1
     break
   fi
+  echo "Attempt $i: waiting (got: ${RESP:0:80})..."
   sleep 2
 done
 
-echo "=== Docker status & logs ==="
+echo "=== Docker Status ==="
 docker ps -a
-docker logs kameleo-app
+docker logs --tail 40 kameleo-app
 
-echo "=== Completed at $(date) ==="
+echo "=== Completed at $(date) with SUCCESS=$SUCCESS ==="
 
+cd /workspaces/cloud-sandbox
 git config --global user.name "SandboxBot"
 git config --global user.email "bot@sandbox.dev"
-git add /workspaces/cloud-sandbox/kameleo_install.log /workspaces/cloud-sandbox/kameleo_user_info.json || true
-git commit -m "Auto report: Kameleo installation and trial info" || true
+git add kameleo_install.log kameleo_user_info.json || true
+git commit -m "Update: Kameleo trial user info [auto]" || true
 git push origin main || true
