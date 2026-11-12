@@ -24,14 +24,15 @@ docker run -d --name kameleo-app \
   kameleo/kameleo-app:latest
 
 echo "Waiting for port 5050 to become ready..."
-for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30; do
-  RESP=$(curl -s http://127.0.0.1:5050/general/user-info || echo "fail")
+for i in $(seq 1 80); do
+  RESP=$(curl -s http://127.0.0.1:5050/general/user-info || echo fail)
   if echo "$RESP" | grep -q '"plan"'; then
     echo "Kameleo API 200 OK!"
     echo "$RESP" > /workspaces/cloud-sandbox/kameleo_report_${CODESPACE_NAME}.json
     break
   fi
-  sleep 2
+  echo "wait $i $RESP"
+  sleep 5
 done
 
 cd /workspaces/cloud-sandbox
