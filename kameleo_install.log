@@ -1,0 +1,82 @@
+=== Starting Kameleo Installation at Thu Nov 12 17:37:22 UTC 2026 ===
+Linux codespaces-0b1204 6.8.0-1070-azure #78~22.04.1-Ubuntu SMP Thu Sep 24 18:46:45 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+Docker version 28.1.1-1, build 4eba3773274f9d21ba90ae5bc719c3f1e4bb07a1
+Pulling kameleo/kameleo-app:latest ...
+latest: Pulling from kameleo/kameleo-app
+38d69e7210b4: Pulling fs layer
+a6a55f2a2de9: Pulling fs layer
+8ae952ef6ba4: Pulling fs layer
+ccb9f6343f83: Pulling fs layer
+cc9bc70aaacb: Pulling fs layer
+c5c4a559a33e: Pulling fs layer
+7c49591a3a05: Pulling fs layer
+10b933f10516: Pulling fs layer
+a0fecabb5296: Pulling fs layer
+249efb828956: Pulling fs layer
+876bdb708555: Pulling fs layer
+c4402d828c28: Pulling fs layer
+6be09624b66d: Pulling fs layer
+10b933f10516: Waiting
+a0fecabb5296: Waiting
+249efb828956: Waiting
+876bdb708555: Waiting
+c4402d828c28: Waiting
+6be09624b66d: Waiting
+ccb9f6343f83: Waiting
+cc9bc70aaacb: Waiting
+7c49591a3a05: Waiting
+c5c4a559a33e: Waiting
+8ae952ef6ba4: Verifying Checksum
+8ae952ef6ba4: Download complete
+a6a55f2a2de9: Verifying Checksum
+a6a55f2a2de9: Download complete
+38d69e7210b4: Download complete
+ccb9f6343f83: Verifying Checksum
+ccb9f6343f83: Download complete
+7c49591a3a05: Verifying Checksum
+7c49591a3a05: Download complete
+10b933f10516: Verifying Checksum
+10b933f10516: Download complete
+cc9bc70aaacb: Verifying Checksum
+cc9bc70aaacb: Download complete
+a0fecabb5296: Verifying Checksum
+a0fecabb5296: Download complete
+c5c4a559a33e: Verifying Checksum
+c5c4a559a33e: Download complete
+249efb828956: Verifying Checksum
+249efb828956: Download complete
+876bdb708555: Verifying Checksum
+876bdb708555: Download complete
+6be09624b66d: Verifying Checksum
+6be09624b66d: Download complete
+c4402d828c28: Verifying Checksum
+c4402d828c28: Download complete
+38d69e7210b4: Pull complete
+a6a55f2a2de9: Pull complete
+8ae952ef6ba4: Pull complete
+ccb9f6343f83: Pull complete
+cc9bc70aaacb: Pull complete
+c5c4a559a33e: Pull complete
+7c49591a3a05: Pull complete
+10b933f10516: Pull complete
+a0fecabb5296: Pull complete
+249efb828956: Pull complete
+876bdb708555: Pull complete
+c4402d828c28: Pull complete
+6be09624b66d: Pull complete
+Digest: sha256:59510aee3dff16a1a551e368099b3a08b1fd3731feed9c05c52dd81a1e3d97ae
+Status: Downloaded newer image for kameleo/kameleo-app:latest
+docker.io/kameleo/kameleo-app:latest
+Running kameleo-app container ...
+7ea212787c2b2e01bfa23654d572cc1fb45a9f84c4b4b67fd01072c73af22f1f
+Waiting for Kameleo port 5050 to respond ...
+Kameleo started successfully!
+=== Docker status & logs ===
+CONTAINER ID   IMAGE                        COMMAND                  CREATED         STATUS                            PORTS                                                           NAMES
+7ea212787c2b   kameleo/kameleo-app:latest   "/app/docker-entrypo…"   8 seconds ago   Up 7 seconds (health: starting)   80/tcp, 5900/tcp, 0.0.0.0:5050->5050/tcp, [::]:5050->5050/tcp   kameleo-app
+Started Kameleo Engine v5.4.0 / Ubuntu 22.04.5 LTS () / +:5050
+Arguments: 
+Log level: 1 (change via the Verbose field in the appsettings.json file, command line argument or environment variable)
+By using the software you accept the terms and conditions: https://kameleo.io/terms-conditions
+
+=== Completed at Thu Nov 12 17:38:45 UTC 2026 ===
